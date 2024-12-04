@@ -23,6 +23,7 @@ Python3: 26.72 seconds
 
 - The restaurant has **100 separate tables**.
 - Each table can seat **up to 4 diners** when used individually.
+- We want to know how many dinners will seat in each table
 
 ## Joining Tables
 
