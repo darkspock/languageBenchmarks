@@ -4,6 +4,7 @@ To test the performance between Node.js and PHP by simulating a restaurant table
 
 # Result
 NodeJS: 2.5 seconds
+
 PHP: 38.79 seconds
 
 # Scenario Overview
