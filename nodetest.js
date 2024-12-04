@@ -17,9 +17,9 @@ let totalGroupsRejected = 0;
 
 // Loop to execute the process 1,000,000 times
 for (let simulation = 1; simulation <= 1000000; simulation++) {
-    // Initialize 100 tables, each with a capacity for 4 diners
+    // Initialize 100 tables with 0 diners (indicating they are empty)
     const totalTables = 100;
-    let occupiedTables = new Array(totalTables).fill(false);
+    let occupiedTables = new Array(totalTables).fill(0); // Stores the number of diners per table
     let availableTableIndices = [...Array(totalTables).keys()]; // Indices of available tables
 
     // Main simulation loop
@@ -49,9 +49,16 @@ for (let simulation = 1; simulation <= 1000000; simulation++) {
         // Assign tables to the group
         let assignedTables = availableTableIndices.splice(0, requiredTables);
 
-        // Mark the tables as occupied
+        // Distribute diners across assigned tables
+        let remainingDiners = groupSize;
         for (let tableIndex of assignedTables) {
-            occupiedTables[tableIndex] = true;
+            if (remainingDiners > 4) {
+                occupiedTables[tableIndex] = 4; // Full table
+                remainingDiners -= 4;
+            } else {
+                occupiedTables[tableIndex] = remainingDiners; // Partial table
+                remainingDiners = 0;
+            }
         }
 
         // Group served
