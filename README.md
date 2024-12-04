@@ -3,7 +3,7 @@
 To test the performance between different languages by simulating a restaurant table reservation system entirely in memory.
 
 # Result
-Go: 0.56
+Go: 0.56 seconds
 
 Pypy3: 1.32 seconds
 
