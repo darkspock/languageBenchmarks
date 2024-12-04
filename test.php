@@ -18,10 +18,10 @@ $totalGroupsRejected = 0;
 
 // Loop to execute the process 1,000,000 times
 for ($simulation = 1; $simulation <= 1000000; $simulation++) {
-    // Initialize 100 tables, each with a capacity for 4 diners
+    // Initialize 100 tables with 0 diners (indicating they are empty)
     $totalTables = 100;
-    $occupiedTables = array_fill(0, $totalTables, false);
-    $availableTables = range(0, $totalTables - 1); // Indices of available tables
+    $occupiedTables = array_fill(0, $totalTables, 0); // Store the number of diners per table
+    $availableTables = range(0, $totalTables - 1);    // Indices of available tables
 
     // Main simulation loop
     while (count($availableTables) > 0) {
@@ -50,9 +50,16 @@ for ($simulation = 1; $simulation <= 1000000; $simulation++) {
         // Assign tables to the group
         $assignedTables = array_splice($availableTables, 0, $requiredTables);
 
-        // Mark the tables as occupied
+        // Distribute diners across assigned tables
+        $remainingDiners = $groupSize;
         foreach ($assignedTables as $tableIndex) {
-            $occupiedTables[$tableIndex] = true;
+            if ($remainingDiners > 4) {
+                $occupiedTables[$tableIndex] = 4; // Full table
+                $remainingDiners -= 4;
+            } else {
+                $occupiedTables[$tableIndex] = $remainingDiners; // Partial table
+                $remainingDiners = 0;
+            }
         }
 
         // Group served
