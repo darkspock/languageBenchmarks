@@ -16,9 +16,9 @@ total_groups_rejected = 0
 
 # Loop to execute the process 1,000,000 times
 for simulation in range(1, 1000001):
-    # Initialize 100 tables, each with a capacity for 4 diners
+    # Initialize 100 tables with 0 diners (indicating they are empty)
     total_tables = 100
-    occupied_tables = [False] * total_tables
+    occupied_tables = [0] * total_tables  # Store the number of diners per table
     available_table_indices = list(range(total_tables))  # Indices of available tables
 
     # Main simulation loop
@@ -49,9 +49,15 @@ for simulation in range(1, 1000001):
         # Remove assigned tables from available_table_indices
         available_table_indices = available_table_indices[required_tables:]
 
-        # Mark the tables as occupied
+        # Distribute diners across assigned tables
+        remaining_diners = group_size
         for table_index in assigned_tables:
-            occupied_tables[table_index] = True
+            if remaining_diners > 4:
+                occupied_tables[table_index] = 4  # Full table
+                remaining_diners -= 4
+            else:
+                occupied_tables[table_index] = remaining_diners  # Partial table
+                remaining_diners = 0
 
         # Group served
         total_groups_served += 1
