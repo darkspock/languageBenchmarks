@@ -2,6 +2,10 @@
 
 To test the performance between Node.js and PHP by simulating a restaurant table reservation system entirely in memory.
 
+# Result
+NodeJS: 2.5 seconds
+PHP: 38.79 seconds
+
 # Scenario Overview
 
 ## Tables
