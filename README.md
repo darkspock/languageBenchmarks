@@ -1,11 +1,21 @@
 # Objective
 
-To test the performance between Node.js and PHP by simulating a restaurant table reservation system entirely in memory.
+To test the performance between different languages by simulating a restaurant table reservation system entirely in memory.
 
 # Result
+Go: 0.56
+
+Pypy3: 1.32 seconds
+
 NodeJS: 2.5 seconds
 
-PHP: 38.79 seconds
+PGP8.4 (With Jit): 6.1 seconds
+
+PHP8.4: 8.34 seconds
+
+Python3: 26.72 seconds
+
+
 
 # Scenario Overview
 
