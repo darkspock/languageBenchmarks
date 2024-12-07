@@ -1,6 +1,21 @@
 # Performance Test Simulation
 
-## Overview
+# Objective
+
+To test the performance between different languages by simulating a restaurant table reservation system entirely in memory.
+
+# Result
+Go: 2.48 seconds
+
+NodeJS: 5.6 seconds
+
+PHP8.4: 67.93 seconds
+
+Python3: 57.37 seconds
+
+
+# Scenario Overview
+
 
 This program simulates a restaurant reservation scenario to measure performance. It creates a set of 100 tables, each initially capable of seating 4 guests. When tables are combined, their total capacity changes based on a rule derived from the provided examples. For example:
 - 1 table: 4 guests
