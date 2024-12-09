@@ -1,6 +1,24 @@
 # Performance Test Simulation
 
-## Overview
+# Objective
+
+To test the performance between different languages by simulating a restaurant table reservation system entirely in memory.
+
+# Result
+Go: 2.48 seconds
+
+NodeJS: 5.6 seconds
+
+PHP8.4 with JIT: 8.39 php -d opcache.enable_cli=1 -d opcache.jit_buffer_size=100M -d opcache.jit=tracing  test.php 
+> I'm getting this improvement only on PHP over Osx (MacMini PRO), on ubuntu or Docker, Jit has zero improvement.
+
+PHP8.4: 67.93 seconds
+
+Python3: 57.37 seconds
+
+
+# Scenario Overview
+
 
 This program simulates a restaurant reservation scenario to measure performance. It creates a set of 100 tables, each initially capable of seating 4 guests. When tables are combined, their total capacity changes based on a rule derived from the provided examples. For example:
 - 1 table: 4 guests
