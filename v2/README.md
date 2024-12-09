@@ -10,6 +10,7 @@ Go: 2.48 seconds
 NodeJS: 5.6 seconds
 
 PHP8.4 with JIT: 8.39 php -d opcache.enable_cli=1 -d opcache.jit_buffer_size=100M -d opcache.jit=tracing  test.php 
+> I'm getting this improvement only on PHP over Osx (MacMini PRO), on ubuntu or Docker, Jit has zero improvement.
 
 PHP8.4: 67.93 seconds
 
